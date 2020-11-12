@@ -1,0 +1,846 @@
+discoursesimplification.processing.discourse_simplifier:DEBUG:DiscourseSimplifier initialized
+discoursesimplification.processing.discourse_simplifier:INFO:# Processing sentence 1/1 #
+discoursesimplification.processing.discourse_simplifier:INFO:
+discoursesimplification.processing.discourse_simplifier:INFO:'Although the Treasury will announce details of the November refunding on Monday, the funding will be delayed if Congress and President Bush fail to increase the Treasury's borrowing capacity.'
+discoursesimplification.processing.discourse_simplifier:INFO:
+discoursesimplification.processing.discourse_simplifier:DEBUG:### Step 1) CREATE SENTENCE DISCOURSE TREE ###
+discoursesimplification.processing.discourse_simplifier:DEBUG:
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:Processing leaf:
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:'Although the Treasury will announce details of the November refunding on Monday , the funding will be delayed if Congress and President Bush fail to increase the Treasury 's borrowing capacity .'
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:Process leaf:
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:
+ROOT
+#1
+└───────> S
+          #2
+          ├───────────────────────────────────────────────> SBAR
+          |                                                 #3
+          |                                                 ├───────────────────────────────────────────────────────────────────> IN
+          |                                                 |                                                                     #4
+          |                                                 |                                                                     └───────> Although
+          |                                                 |                                                                               #5
+          |                                                 └───────> S
+          |                                                           #6
+          |                                                           ├───────────────────────────────────────────────> NP
+          |                                                           |                                                 #7
+          |                                                           |                                                 ├───────> DT
+          |                                                           |                                                 |         #8
+          |                                                           |                                                 |         └───────> the
+          |                                                           |                                                 |                   #9
+          |                                                           |                                                 └───────> NNP
+          |                                                           |                                                           #10
+          |                                                           |                                                           └───────> Treasury
+          |                                                           |                                                                     #11
+          |                                                           └───────> VP
+          |                                                                     #12
+          |                                                                     ├───────────────────────────────────────────────> MD
+          |                                                                     |                                                 #13
+          |                                                                     |                                                 └───────> will
+          |                                                                     |                                                           #14
+          |                                                                     └───────> VP
+          |                                                                               #15
+          |                                                                               ├─────────────────────────────────────> VB
+          |                                                                               |                                       #16
+          |                                                                               |                                       └───────> announce
+          |                                                                               |                                                 #17
+          |                                                                               ├───────> NP
+          |                                                                               |         #18
+          |                                                                               |         ├─────────────────> NP
+          |                                                                               |         |                   #19
+          |                                                                               |         |                   └───────> NNS
+          |                                                                               |         |                             #20
+          |                                                                               |         |                             └───────> details
+          |                                                                               |         |                                       #21
+          |                                                                               |         └───────> PP
+          |                                                                               |                   #22
+          |                                                                               |                   ├─────────────────> IN
+          |                                                                               |                   |                   #23
+          |                                                                               |                   |                   └───────> of
+          |                                                                               |                   |                             #24
+          |                                                                               |                   └───────> NP
+          |                                                                               |                             #25
+          |                                                                               |                             ├───────> DT
+          |                                                                               |                             |         #26
+          |                                                                               |                             |         └───────> the
+          |                                                                               |                             |                   #27
+          |                                                                               |                             ├───────> NNP
+          |                                                                               |                             |         #28
+          |                                                                               |                             |         └───────> November
+          |                                                                               |                             |                   #29
+          |                                                                               |                             └───────> NN
+          |                                                                               |                                       #30
+          |                                                                               |                                       └───────> refunding
+          |                                                                               |                                                 #31
+          |                                                                               └─────────────────> PP
+          |                                                                                                   #32
+          |                                                                                                   ├─────────────────> IN
+          |                                                                                                   |                   #33
+          |                                                                                                   |                   └───────> on
+          |                                                                                                   |                             #34
+          |                                                                                                   └───────> NP
+          |                                                                                                             #35
+          |                                                                                                             └───────> NNP
+          |                                                                                                                       #36
+          |                                                                                                                       └───────> Monday
+          |                                                                                                                                 #37
+          ├─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────> ,
+          |                                                                                                                       #38
+          |                                                                                                                       └───────> ,
+          |                                                                                                                                 #39
+          ├───────────────────────────────────────────────────────────────────────────────────────────────────────────> NP
+          |                                                                                                             #40
+          |                                                                                                             ├───────> DT
+          |                                                                                                             |         #41
+          |                                                                                                             |         └───────> the
+          |                                                                                                             |                   #42
+          |                                                                                                             └───────> NN
+          |                                                                                                                       #43
+          |                                                                                                                       └───────> funding
+          |                                                                                                                                 #44
+          ├───────> VP
+          |         #45
+          |         ├───────────────────────────────────────────────────────────────────────────────────────────────────────────> MD
+          |         |                                                                                                             #46
+          |         |                                                                                                             └───────> will
+          |         |                                                                                                                       #47
+          |         └───────> VP
+          |                   #48
+          |                   ├─────────────────────────────────────────────────────────────────────────────────────────────────> VB
+          |                   |                                                                                                   #49
+          |                   |                                                                                                   └───────> be
+          |                   |                                                                                                             #50
+          |                   └───────> VP
+          |                             #51
+          |                             ├───────────────────────────────────────────────────────────────────────────────────────> VBN
+          |                             |                                                                                         #52
+          |                             |                                                                                         └───────> delayed
+          |                             |                                                                                                   #53
+          |                             └───────> SBAR
+          |                                       #54
+          |                                       ├─────────────────────────────────────────────────────────────────────────────> IN
+          |                                       |                                                                               #55
+          |                                       |                                                                               └───────> if
+          |                                       |                                                                                         #56
+          |                                       └───────> S
+          |                                                 #57
+          |                                                 ├───────────────────────────────────────────────> NP
+          |                                                 |                                                 #58
+          |                                                 |                                                 ├───────> NP
+          |                                                 |                                                 |         #59
+          |                                                 |                                                 |         └───────> NNP
+          |                                                 |                                                 |                   #60
+          |                                                 |                                                 |                   └───────> Congress
+          |                                                 |                                                 |                             #61
+          |                                                 |                                                 ├─────────────────> CC
+          |                                                 |                                                 |                   #62
+          |                                                 |                                                 |                   └───────> and
+          |                                                 |                                                 |                             #63
+          |                                                 |                                                 └───────> NP
+          |                                                 |                                                           #64
+          |                                                 |                                                           ├───────> NNP
+          |                                                 |                                                           |         #65
+          |                                                 |                                                           |         └───────> President
+          |                                                 |                                                           |                   #66
+          |                                                 |                                                           └───────> NNP
+          |                                                 |                                                                     #67
+          |                                                 |                                                                     └───────> Bush
+          |                                                 |                                                                               #68
+          |                                                 └───────> VP
+          |                                                           #69
+          |                                                           ├─────────────────────────────────────────────────────────> VB
+          |                                                           |                                                           #70
+          |                                                           |                                                           └───────> fail
+          |                                                           |                                                                     #71
+          |                                                           └───────> S
+          |                                                                     #72
+          |                                                                     └───────> VP
+          |                                                                               #73
+          |                                                                               ├─────────────────────────────────────> TO
+          |                                                                               |                                       #74
+          |                                                                               |                                       └───────> to
+          |                                                                               |                                                 #75
+          |                                                                               └───────> VP
+          |                                                                                         #76
+          |                                                                                         ├───────────────────────────> VB
+          |                                                                                         |                             #77
+          |                                                                                         |                             └───────> increase
+          |                                                                                         |                                       #78
+          |                                                                                         └───────> NP
+          |                                                                                                   #79
+          |                                                                                                   ├───────> NP
+          |                                                                                                   |         #80
+          |                                                                                                   |         ├───────> DT
+          |                                                                                                   |         |         #81
+          |                                                                                                   |         |         └───────> the
+          |                                                                                                   |         |                   #82
+          |                                                                                                   |         ├───────> NNP
+          |                                                                                                   |         |         #83
+          |                                                                                                   |         |         └───────> Treasury
+          |                                                                                                   |         |                   #84
+          |                                                                                                   |         └───────> POS
+          |                                                                                                   |                   #85
+          |                                                                                                   |                   └───────> 's
+          |                                                                                                   |                             #86
+          |                                                                                                   ├─────────────────> NN
+          |                                                                                                   |                   #87
+          |                                                                                                   |                   └───────> borrowing
+          |                                                                                                   |                             #88
+          |                                                                                                   └─────────────────> NN
+          |                                                                                                                       #89
+          |                                                                                                                       └───────> capacity
+          |                                                                                                                                 #90
+          └─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────> .
+                                                                                                                                  #91
+                                                                                                                                  └───────> .
+                                                                                                                                            #92
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:Extraction rule RestrictiveAppositionExtractor matched.
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:Processing leaf:
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:'Although the Treasury will announce details of the November refunding on Monday , the funding will be delayed if Bush fail to increase the Treasury 's borrowing capacity .'
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:Process leaf:
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:
+ROOT
+#1
+└───────> S
+          #2
+          ├───────────────────────────────────────────────> SBAR
+          |                                                 #3
+          |                                                 ├───────────────────────────────────────────────────────────────────> IN
+          |                                                 |                                                                     #4
+          |                                                 |                                                                     └───────> Although
+          |                                                 |                                                                               #5
+          |                                                 └───────> S
+          |                                                           #6
+          |                                                           ├───────────────────────────────────────────────> NP
+          |                                                           |                                                 #7
+          |                                                           |                                                 ├───────> DT
+          |                                                           |                                                 |         #8
+          |                                                           |                                                 |         └───────> the
+          |                                                           |                                                 |                   #9
+          |                                                           |                                                 └───────> NNP
+          |                                                           |                                                           #10
+          |                                                           |                                                           └───────> Treasury
+          |                                                           |                                                                     #11
+          |                                                           └───────> VP
+          |                                                                     #12
+          |                                                                     ├───────────────────────────────────────────────> MD
+          |                                                                     |                                                 #13
+          |                                                                     |                                                 └───────> will
+          |                                                                     |                                                           #14
+          |                                                                     └───────> VP
+          |                                                                               #15
+          |                                                                               ├─────────────────────────────────────> VB
+          |                                                                               |                                       #16
+          |                                                                               |                                       └───────> announce
+          |                                                                               |                                                 #17
+          |                                                                               ├───────> NP
+          |                                                                               |         #18
+          |                                                                               |         ├─────────────────> NP
+          |                                                                               |         |                   #19
+          |                                                                               |         |                   └───────> NNS
+          |                                                                               |         |                             #20
+          |                                                                               |         |                             └───────> details
+          |                                                                               |         |                                       #21
+          |                                                                               |         └───────> PP
+          |                                                                               |                   #22
+          |                                                                               |                   ├─────────────────> IN
+          |                                                                               |                   |                   #23
+          |                                                                               |                   |                   └───────> of
+          |                                                                               |                   |                             #24
+          |                                                                               |                   └───────> NP
+          |                                                                               |                             #25
+          |                                                                               |                             ├───────> DT
+          |                                                                               |                             |         #26
+          |                                                                               |                             |         └───────> the
+          |                                                                               |                             |                   #27
+          |                                                                               |                             ├───────> NNP
+          |                                                                               |                             |         #28
+          |                                                                               |                             |         └───────> November
+          |                                                                               |                             |                   #29
+          |                                                                               |                             └───────> NN
+          |                                                                               |                                       #30
+          |                                                                               |                                       └───────> refunding
+          |                                                                               |                                                 #31
+          |                                                                               └─────────────────> PP
+          |                                                                                                   #32
+          |                                                                                                   ├─────────────────> IN
+          |                                                                                                   |                   #33
+          |                                                                                                   |                   └───────> on
+          |                                                                                                   |                             #34
+          |                                                                                                   └───────> NP
+          |                                                                                                             #35
+          |                                                                                                             └───────> NNP
+          |                                                                                                                       #36
+          |                                                                                                                       └───────> Monday
+          |                                                                                                                                 #37
+          ├─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────> ,
+          |                                                                                                                       #38
+          |                                                                                                                       └───────> ,
+          |                                                                                                                                 #39
+          ├───────────────────────────────────────────────────────────────────────────────────────────────────────────> NP
+          |                                                                                                             #40
+          |                                                                                                             ├───────> DT
+          |                                                                                                             |         #41
+          |                                                                                                             |         └───────> the
+          |                                                                                                             |                   #42
+          |                                                                                                             └───────> NN
+          |                                                                                                                       #43
+          |                                                                                                                       └───────> funding
+          |                                                                                                                                 #44
+          ├───────> VP
+          |         #45
+          |         ├───────────────────────────────────────────────────────────────────────────────────────────────────────────> MD
+          |         |                                                                                                             #46
+          |         |                                                                                                             └───────> will
+          |         |                                                                                                                       #47
+          |         └───────> VP
+          |                   #48
+          |                   ├─────────────────────────────────────────────────────────────────────────────────────────────────> VB
+          |                   |                                                                                                   #49
+          |                   |                                                                                                   └───────> be
+          |                   |                                                                                                             #50
+          |                   └───────> VP
+          |                             #51
+          |                             ├───────────────────────────────────────────────────────────────────────────────────────> VBN
+          |                             |                                                                                         #52
+          |                             |                                                                                         └───────> delayed
+          |                             |                                                                                                   #53
+          |                             └───────> SBAR
+          |                                       #54
+          |                                       ├─────────────────────────────────────────────────────────────────────────────> IN
+          |                                       |                                                                               #55
+          |                                       |                                                                               └───────> if
+          |                                       |                                                                                         #56
+          |                                       └───────> S
+          |                                                 #57
+          |                                                 ├─────────────────────────────────────────────────────────> NP
+          |                                                 |                                                           #58
+          |                                                 |                                                           └───────> NNP
+          |                                                 |                                                                     #59
+          |                                                 |                                                                     └───────> Bush
+          |                                                 |                                                                               #60
+          |                                                 └───────> VP
+          |                                                           #61
+          |                                                           ├─────────────────────────────────────────────────────────> VBP
+          |                                                           |                                                           #62
+          |                                                           |                                                           └───────> fail
+          |                                                           |                                                                     #63
+          |                                                           └───────> S
+          |                                                                     #64
+          |                                                                     └───────> VP
+          |                                                                               #65
+          |                                                                               ├─────────────────────────────────────> TO
+          |                                                                               |                                       #66
+          |                                                                               |                                       └───────> to
+          |                                                                               |                                                 #67
+          |                                                                               └───────> VP
+          |                                                                                         #68
+          |                                                                                         ├───────────────────────────> VB
+          |                                                                                         |                             #69
+          |                                                                                         |                             └───────> increase
+          |                                                                                         |                                       #70
+          |                                                                                         └───────> NP
+          |                                                                                                   #71
+          |                                                                                                   ├───────> NP
+          |                                                                                                   |         #72
+          |                                                                                                   |         ├───────> DT
+          |                                                                                                   |         |         #73
+          |                                                                                                   |         |         └───────> the
+          |                                                                                                   |         |                   #74
+          |                                                                                                   |         ├───────> NNP
+          |                                                                                                   |         |         #75
+          |                                                                                                   |         |         └───────> Treasury
+          |                                                                                                   |         |                   #76
+          |                                                                                                   |         └───────> POS
+          |                                                                                                   |                   #77
+          |                                                                                                   |                   └───────> 's
+          |                                                                                                   |                             #78
+          |                                                                                                   ├─────────────────> NN
+          |                                                                                                   |                   #79
+          |                                                                                                   |                   └───────> borrowing
+          |                                                                                                   |                             #80
+          |                                                                                                   └─────────────────> NN
+          |                                                                                                                       #81
+          |                                                                                                                       └───────> capacity
+          |                                                                                                                                 #82
+          └─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────> .
+                                                                                                                                  #83
+                                                                                                                                  └───────> .
+                                                                                                                                            #84
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:Extraction rule SubordinationPreExtractor matched.
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:Processing leaf:
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:'The Treasury will announce details of the November refunding on Monday .'
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:Process leaf:
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:
+ROOT
+#1
+└───────> S
+          #2
+          ├───────────────────────────────────────────────> NP
+          |                                                 #3
+          |                                                 ├───────> DT
+          |                                                 |         #4
+          |                                                 |         └───────> The
+          |                                                 |                   #5
+          |                                                 └───────> NNP
+          |                                                           #6
+          |                                                           └───────> Treasury
+          |                                                                     #7
+          ├───────> VP
+          |         #8
+          |         ├───────────────────────────────────────────────> MD
+          |         |                                                 #9
+          |         |                                                 └───────> will
+          |         |                                                           #10
+          |         └───────> VP
+          |                   #11
+          |                   ├─────────────────────────────────────> VB
+          |                   |                                       #12
+          |                   |                                       └───────> announce
+          |                   |                                                 #13
+          |                   ├───────> NP
+          |                   |         #14
+          |                   |         ├─────────────────> NP
+          |                   |         |                   #15
+          |                   |         |                   └───────> NNS
+          |                   |         |                             #16
+          |                   |         |                             └───────> details
+          |                   |         |                                       #17
+          |                   |         └───────> PP
+          |                   |                   #18
+          |                   |                   ├─────────────────> IN
+          |                   |                   |                   #19
+          |                   |                   |                   └───────> of
+          |                   |                   |                             #20
+          |                   |                   └───────> NP
+          |                   |                             #21
+          |                   |                             ├───────> DT
+          |                   |                             |         #22
+          |                   |                             |         └───────> the
+          |                   |                             |                   #23
+          |                   |                             ├───────> NNP
+          |                   |                             |         #24
+          |                   |                             |         └───────> November
+          |                   |                             |                   #25
+          |                   |                             └───────> NN
+          |                   |                                       #26
+          |                   |                                       └───────> refunding
+          |                   |                                                 #27
+          |                   └─────────────────> PP
+          |                                       #28
+          |                                       ├─────────────────> IN
+          |                                       |                   #29
+          |                                       |                   └───────> on
+          |                                       |                             #30
+          |                                       └───────> NP
+          |                                                 #31
+          |                                                 └───────> NNP
+          |                                                           #32
+          |                                                           └───────> Monday
+          |                                                                     #33
+          └─────────────────────────────────────────────────────────> .
+                                                                      #34
+                                                                      └───────> .
+                                                                                #35
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:Extraction rule PrepositionalAttachedtoVPExtractor matched.
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:Processing leaf:
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:'The Treasury will announce details of the November refunding .'
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:Process leaf:
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:
+ROOT
+#1
+└───────> S
+          #2
+          ├───────────────────────────────────────────────> NP
+          |                                                 #3
+          |                                                 ├───────> DT
+          |                                                 |         #4
+          |                                                 |         └───────> The
+          |                                                 |                   #5
+          |                                                 └───────> NNP
+          |                                                           #6
+          |                                                           └───────> Treasury
+          |                                                                     #7
+          ├───────> VP
+          |         #8
+          |         ├───────────────────────────────────────────────> MD
+          |         |                                                 #9
+          |         |                                                 └───────> will
+          |         |                                                           #10
+          |         └───────> VP
+          |                   #11
+          |                   ├─────────────────────────────────────> VB
+          |                   |                                       #12
+          |                   |                                       └───────> announce
+          |                   |                                                 #13
+          |                   └───────> NP
+          |                             #14
+          |                             ├─────────────────> NP
+          |                             |                   #15
+          |                             |                   └───────> NNS
+          |                             |                             #16
+          |                             |                             └───────> details
+          |                             |                                       #17
+          |                             └───────> PP
+          |                                       #18
+          |                                       ├─────────────────> IN
+          |                                       |                   #19
+          |                                       |                   └───────> of
+          |                                       |                             #20
+          |                                       └───────> NP
+          |                                                 #21
+          |                                                 ├───────> DT
+          |                                                 |         #22
+          |                                                 |         └───────> the
+          |                                                 |                   #23
+          |                                                 ├───────> NNP
+          |                                                 |         #24
+          |                                                 |         └───────> November
+          |                                                 |                   #25
+          |                                                 └───────> NN
+          |                                                           #26
+          |                                                           └───────> refunding
+          |                                                                     #27
+          └─────────────────────────────────────────────────────────> .
+                                                                      #28
+                                                                      └───────> .
+                                                                                #29
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:No model rule applied.
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:Processing leaf:
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:'This is on Monday .'
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:Process leaf:
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:
+ROOT
+#1
+└───────> S
+          #2
+          ├───────────────────────────> NP
+          |                             #3
+          |                             └───────> DT
+          |                                       #4
+          |                                       └───────> This
+          |                                                 #5
+          ├───────> VP
+          |         #6
+          |         ├───────────────────────────> VBZ
+          |         |                             #7
+          |         |                             └───────> is
+          |         |                                       #8
+          |         └───────> PP
+          |                   #9
+          |                   ├─────────────────> IN
+          |                   |                   #10
+          |                   |                   └───────> on
+          |                   |                             #11
+          |                   └───────> NP
+          |                             #12
+          |                             └───────> NNP
+          |                                       #13
+          |                                       └───────> Monday
+          |                                                 #14
+          └─────────────────────────────────────> .
+                                                  #15
+                                                  └───────> .
+                                                            #16
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:No model rule applied.
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:Processing leaf:
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:'The funding will be delayed if Bush fail to increase the Treasury 's borrowing capacity .'
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:Process leaf:
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:
+ROOT
+#1
+└───────> S
+          #2
+          ├───────────────────────────────────────────────────────────────────────────────────────────────────────────> NP
+          |                                                                                                             #3
+          |                                                                                                             ├───────> DT
+          |                                                                                                             |         #4
+          |                                                                                                             |         └───────> The
+          |                                                                                                             |                   #5
+          |                                                                                                             └───────> NN
+          |                                                                                                                       #6
+          |                                                                                                                       └───────> funding
+          |                                                                                                                                 #7
+          ├───────> VP
+          |         #8
+          |         ├───────────────────────────────────────────────────────────────────────────────────────────────────────────> MD
+          |         |                                                                                                             #9
+          |         |                                                                                                             └───────> will
+          |         |                                                                                                                       #10
+          |         └───────> VP
+          |                   #11
+          |                   ├─────────────────────────────────────────────────────────────────────────────────────────────────> VB
+          |                   |                                                                                                   #12
+          |                   |                                                                                                   └───────> be
+          |                   |                                                                                                             #13
+          |                   └───────> VP
+          |                             #14
+          |                             ├───────────────────────────────────────────────────────────────────────────────────────> VBN
+          |                             |                                                                                         #15
+          |                             |                                                                                         └───────> delayed
+          |                             |                                                                                                   #16
+          |                             └───────> SBAR
+          |                                       #17
+          |                                       ├─────────────────────────────────────────────────────────────────────────────> IN
+          |                                       |                                                                               #18
+          |                                       |                                                                               └───────> if
+          |                                       |                                                                                         #19
+          |                                       └───────> S
+          |                                                 #20
+          |                                                 ├─────────────────────────────────────────────────────────> NP
+          |                                                 |                                                           #21
+          |                                                 |                                                           └───────> NNP
+          |                                                 |                                                                     #22
+          |                                                 |                                                                     └───────> Bush
+          |                                                 |                                                                               #23
+          |                                                 └───────> VP
+          |                                                           #24
+          |                                                           ├─────────────────────────────────────────────────────────> VBP
+          |                                                           |                                                           #25
+          |                                                           |                                                           └───────> fail
+          |                                                           |                                                                     #26
+          |                                                           └───────> S
+          |                                                                     #27
+          |                                                                     └───────> VP
+          |                                                                               #28
+          |                                                                               ├─────────────────────────────────────> TO
+          |                                                                               |                                       #29
+          |                                                                               |                                       └───────> to
+          |                                                                               |                                                 #30
+          |                                                                               └───────> VP
+          |                                                                                         #31
+          |                                                                                         ├───────────────────────────> VB
+          |                                                                                         |                             #32
+          |                                                                                         |                             └───────> increase
+          |                                                                                         |                                       #33
+          |                                                                                         └───────> NP
+          |                                                                                                   #34
+          |                                                                                                   ├───────> NP
+          |                                                                                                   |         #35
+          |                                                                                                   |         ├───────> DT
+          |                                                                                                   |         |         #36
+          |                                                                                                   |         |         └───────> the
+          |                                                                                                   |         |                   #37
+          |                                                                                                   |         ├───────> NNP
+          |                                                                                                   |         |         #38
+          |                                                                                                   |         |         └───────> Treasury
+          |                                                                                                   |         |                   #39
+          |                                                                                                   |         └───────> POS
+          |                                                                                                   |                   #40
+          |                                                                                                   |                   └───────> 's
+          |                                                                                                   |                             #41
+          |                                                                                                   ├─────────────────> NN
+          |                                                                                                   |                   #42
+          |                                                                                                   |                   └───────> borrowing
+          |                                                                                                   |                             #43
+          |                                                                                                   └─────────────────> NN
+          |                                                                                                                       #44
+          |                                                                                                                       └───────> capacity
+          |                                                                                                                                 #45
+          └─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────> .
+                                                                                                                                  #46
+                                                                                                                                  └───────> .
+                                                                                                                                            #47
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:Extraction rule SubordinationPostExtractor matched.
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:Processing leaf:
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:'The funding will be delayed .'
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:Process leaf:
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:
+ROOT
+#1
+└───────> S
+          #2
+          ├───────────────────────────> NP
+          |                             #3
+          |                             ├───────> DT
+          |                             |         #4
+          |                             |         └───────> The
+          |                             |                   #5
+          |                             └───────> NN
+          |                                       #6
+          |                                       └───────> funding
+          |                                                 #7
+          ├───────> VP
+          |         #8
+          |         ├───────────────────────────> MD
+          |         |                             #9
+          |         |                             └───────> will
+          |         |                                       #10
+          |         └───────> VP
+          |                   #11
+          |                   ├─────────────────> VB
+          |                   |                   #12
+          |                   |                   └───────> be
+          |                   |                             #13
+          |                   └───────> VP
+          |                             #14
+          |                             └───────> VBN
+          |                                       #15
+          |                                       └───────> delayed
+          |                                                 #16
+          └─────────────────────────────────────> .
+                                                  #17
+                                                  └───────> .
+                                                            #18
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:No model rule applied.
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:Processing leaf:
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:'Bush fail to increase the Treasury 's borrowing capacity .'
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:Process leaf:
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:
+ROOT
+#1
+└───────> S
+          #2
+          ├─────────────────────────────────────────────────────────> NP
+          |                                                           #3
+          |                                                           └───────> NNP
+          |                                                                     #4
+          |                                                                     └───────> Bush
+          |                                                                               #5
+          ├───────> VP
+          |         #6
+          |         ├─────────────────────────────────────────────────────────> VBP
+          |         |                                                           #7
+          |         |                                                           └───────> fail
+          |         |                                                                     #8
+          |         └───────> S
+          |                   #9
+          |                   └───────> VP
+          |                             #10
+          |                             ├─────────────────────────────────────> TO
+          |                             |                                       #11
+          |                             |                                       └───────> to
+          |                             |                                                 #12
+          |                             └───────> VP
+          |                                       #13
+          |                                       ├───────────────────────────> VB
+          |                                       |                             #14
+          |                                       |                             └───────> increase
+          |                                       |                                       #15
+          |                                       └───────> NP
+          |                                                 #16
+          |                                                 ├───────> NP
+          |                                                 |         #17
+          |                                                 |         ├───────> DT
+          |                                                 |         |         #18
+          |                                                 |         |         └───────> the
+          |                                                 |         |                   #19
+          |                                                 |         ├───────> NNP
+          |                                                 |         |         #20
+          |                                                 |         |         └───────> Treasury
+          |                                                 |         |                   #21
+          |                                                 |         └───────> POS
+          |                                                 |                   #22
+          |                                                 |                   └───────> 's
+          |                                                 |                             #23
+          |                                                 ├─────────────────> NN
+          |                                                 |                   #24
+          |                                                 |                   └───────> borrowing
+          |                                                 |                             #25
+          |                                                 └─────────────────> NN
+          |                                                                     #26
+          |                                                                     └───────> capacity
+          |                                                                               #27
+          └───────────────────────────────────────────────────────────────────> .
+                                                                                #28
+                                                                                └───────> .
+                                                                                          #29
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:No model rule applied.
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:Processing leaf:
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:'Bush was Congress and President .'
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:Process leaf:
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:
+ROOT
+#1
+└───────> S
+          #2
+          ├─────────────────> NP
+          |                   #3
+          |                   └───────> NNP
+          |                             #4
+          |                             └───────> Bush
+          |                                       #5
+          ├───────> VP
+          |         #6
+          |         ├─────────────────> VBD
+          |         |                   #7
+          |         |                   └───────> was
+          |         |                             #8
+          |         └───────> NP
+          |                   #9
+          |                   ├───────> NNP
+          |                   |         #10
+          |                   |         └───────> Congress
+          |                   |                   #11
+          |                   ├───────> CC
+          |                   |         #12
+          |                   |         └───────> and
+          |                   |                   #13
+          |                   └───────> NNP
+          |                             #14
+          |                             └───────> President
+          |                                       #15
+          └───────────────────────────> .
+                                        #16
+                                        └───────> .
+                                                  #17
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:No model rule applied.
+discoursesimplification.runner.discourse_tree.discourse_tree_creator:DEBUG:
+discoursesimplification.processing.discourse_simplifier:DEBUG:
+CO/UNKNOWN_COORDINATION (NULL, ROOT)
+└───n───> SUB/ELABORATION (NULL, RestrictiveAppositionExtractor)
+          ├─────────────s─────────────> 'Bush was Congress and President .'
+          └───n───> CO/CONTRAST ('Although', SubordinationPreExtractor)
+                    ├───n───> SUB/TEMPORAL (NULL, PrepositionalAttachedtoVPExtractor)
+                    |         ├───s───> 'This is on Monday .'
+                    |         └───n───> 'The Treasury will announce details of the November refunding .'
+                    └───n───> SUB/CONDITION ('if', SubordinationPostExtractor)
+                              ├───n───> 'The funding will be delayed .'
+                              └───s───> 'Bush fail to increase the Treasury 's borrowing capacity .'
+discoursesimplification.processing.discourse_simplifier:DEBUG:
+discoursesimplification.processing.discourse_simplifier:DEBUG:### STEP 2) DO DISCOURSE EXTRACTION ###
+discoursesimplification.processing.discourse_simplifier:DEBUG:
+# Although the Treasury will announce details of the November refunding on Monday, the funding will be delayed if Congress and President Bush fail to increase the Treasury's borrowing capacity.
+
+e9e579d6fd3c4cf09c0c76cf13851555     0     The Treasury will announce details of the November refunding .
+	S:TEMPORAL    This is on Monday .
+	L:CONTRAST    d7f607c996ed4d3bb3d2beaf6fe93488
+	L:ELABORATION    5afb2671acb8415e813712f3d76dcfb7
+
+d7f607c996ed4d3bb3d2beaf6fe93488     0     The funding will be delayed .
+	L:CONDITION    ca22a246d7e34dfe9c0601464772d8d2
+	L:CONTRAST    e9e579d6fd3c4cf09c0c76cf13851555
+	L:ELABORATION    5afb2671acb8415e813712f3d76dcfb7
+
+ca22a246d7e34dfe9c0601464772d8d2     1     Bush fail to increase the Treasury 's borrowing capacity .
+
+5afb2671acb8415e813712f3d76dcfb7     1     Bush was Congress and President .
+
+discoursesimplification.processing.discourse_simplifier:INFO:### FINISHED
+ROOT:INFO:
+ROOT:INFO:done
