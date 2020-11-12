@@ -48,8 +48,45 @@ class DiscourseSimplifier:
         return self.do_discourse_simplification(sentences, proc_type)
 
     def __process_whole(self, sentences: List[str]) -> SimplificationContent:
-        # TODO
-        pass
+        content = SimplificationContent()
+        
+        # Step 1) create document discourse discourse_tree
+        self.logger.info("### Step 1) CREATE DOCUMENT DISCOURSE TREE ###")
+        self.logger.info("")
+        self.discourse_tree_creator.reset()
+        index = 0
+        for sentence in sentences:
+            self.logger.info("# Processing sentence {}/{} #".format(index + 1, len(sentences)))
+            self.logger.info("")
+            self.logger.info("'" + str(sentence) + "'")
+            self.logger.info("")
+            
+            content.add_sentence(OutSentence(index, sentence))
+
+            # extend discourse discourse_tree
+            try:
+                self.discourse_tree_creator.add_sentence(sentence, index)
+                self.discourse_tree_creator.update()
+                if self.logger.isEnabledFor(logging.DEBUG):
+                    self.logger.debug("\n" + str(self.discourse_tree_creator.get_last_sentence_tree()))
+
+            except ParseTreeException:
+                self.logger.error("Failed to process sentence: " + sentence)
+
+            index += 1
+
+        # Step 2) do discourse extraction
+        self.logger.info("")
+        self.logger.info("### STEP 2) DO DISCOURSE EXTRACTION ###")
+        elements = self.discourse_extractor.do_discourse_extraction(self.discourse_tree_creator.discourse_tree)
+        for e in elements:
+                content.add_element(e)
+        if self.logger.isEnabledFor(logging.DEBUG):
+            self.logger.debug(str(content))
+
+        self.logger.info("### FINISHED")
+        return content
+
 
     # Creates a discourse tree for each individual sentence (investigates intra-sentential relations only)
     def __process_separate(self, sentences: List[str]) -> SimplificationContent:
