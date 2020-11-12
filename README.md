@@ -1,4 +1,4 @@
-# DiscourseSimplification
+# PyDiscourseSimplification
 
 A translation in python 3.7 of [Discourse Simplification](https://github.com/Lambda-3/DiscourseSimplification), the core component of the [Graphene](https://github.com/Lambda-3/Graphene) project.
 
