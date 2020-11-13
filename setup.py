@@ -11,7 +11,7 @@ setuptools.setup(
     description="Discourse Simplification",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://gitlab.cs.man.ac.uk/n68155kk/discoursesimplification",
+    url="https://github.com/kkatsamaktsis/PyDiscourseSimplification",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
