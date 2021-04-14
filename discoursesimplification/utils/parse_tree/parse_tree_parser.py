@@ -27,10 +27,11 @@ class ParseTreeParser:
         # best_parse = doc.sentences[0].tokens
 
         # Parse with NLP client:
-        ann = config.corenlp_client.annotate(text)
+        ann = config.corenlp_client.annotate(text, annotators=['tokenize', 'ssplit', 'parse', 'depparse'])
 
         # get the constituency parse of the first sentence
         sentence = ann.sentence[0]
+        # constituency_parse = sentence.binarizedParseTree
         constituency_parse = sentence.parseTree
         best_parse = constituency_parse
 
@@ -39,6 +40,3 @@ class ParseTreeParser:
 
         # Convert to nltk Tree to be able to access instance methods
         return ParseTreeParser.convert_parse_tree_to_nltk_tree(best_parse)
-
-
-

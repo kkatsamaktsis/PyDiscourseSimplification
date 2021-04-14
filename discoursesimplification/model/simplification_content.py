@@ -129,5 +129,19 @@ class SimplificationContent:
     def serialize_to_json(self) -> str:
         return json.dumps(get_simplification_content_with_tree_as_str(self), cls=ContentEncoder)
 
+    def get_simplified_sentences_as_simple_text(self) -> str:
+        res = ""
+
+        for out_sentence in self.sentences:
+            for element in out_sentence.get_elements():
+                res += (element.text + " ")
+                for simple_context in element.simple_contexts:
+                    res += (simple_context.text + " ")
+                # for linked_context in self.linked_contexts:
+                #     res += ("\t" + "L:" + str(linked_context.relation) + "(" + linked_context.target_id + ")");
+            res += "\n"
+
+        return res
+
     def __str__(self):
         return "\n".join(list(map(lambda s: str(s), self.sentences)))

@@ -3,7 +3,7 @@ from discoursesimplification import config
 
 
 def lemmatize(word: str):
-    ann = config.corenlp_client.annotate(word)
+    ann = config.corenlp_client.annotate(word, annotators=['tokenize', 'ssplit', 'lemma'])
     sentence = ann.sentence[0]
     for token in sentence.token:
         return token.lemma

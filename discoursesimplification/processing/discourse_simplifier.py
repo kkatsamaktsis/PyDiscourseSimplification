@@ -6,6 +6,7 @@ import logging.config
 
 from stanza.server import CoreNLPClient
 
+from discoursesimplification.model.element import Element
 from discoursesimplification.model.out_sentence import OutSentence
 from discoursesimplification.model.simplification_content import SimplificationContent
 from discoursesimplification.processing.processing_type import ProcessingType
@@ -13,6 +14,7 @@ from discoursesimplification.processing.sentence_preprocessor import SentencePre
 from discoursesimplification.runner.discourse_extraction.discourse_extractor import DiscourseExtractor
 from discoursesimplification.runner.discourse_tree.discourse_tree_creator import DiscourseTreeCreator
 from discoursesimplification.utils.parse_tree.parse_tree_exception import ParseTreeException
+from discoursesimplification.utils.parse_tree.parse_tree_parser import ParseTreeParser
 from discoursesimplification.utils.sentences import sentences_utils
 
 from discoursesimplification import config
@@ -49,7 +51,7 @@ class DiscourseSimplifier:
 
     def __process_whole(self, sentences: List[str]) -> SimplificationContent:
         content = SimplificationContent()
-        
+
         # Step 1) create document discourse discourse_tree
         self.logger.info("### Step 1) CREATE DOCUMENT DISCOURSE TREE ###")
         self.logger.info("")
@@ -60,7 +62,7 @@ class DiscourseSimplifier:
             self.logger.info("")
             self.logger.info("'" + str(sentence) + "'")
             self.logger.info("")
-            
+
             content.add_sentence(OutSentence(index, sentence))
 
             # extend discourse discourse_tree
@@ -80,19 +82,19 @@ class DiscourseSimplifier:
         self.logger.info("### STEP 2) DO DISCOURSE EXTRACTION ###")
         elements = self.discourse_extractor.do_discourse_extraction(self.discourse_tree_creator.discourse_tree)
         for e in elements:
-                content.add_element(e)
+            content.add_element(e)
         if self.logger.isEnabledFor(logging.DEBUG):
             self.logger.debug(str(content))
 
         self.logger.info("### FINISHED")
         return content
 
-
     # Creates a discourse tree for each individual sentence (investigates intra-sentential relations only)
     def __process_separate(self, sentences: List[str]) -> SimplificationContent:
         content = SimplificationContent()
-        
+
         index = 0
+
         for sentence in sentences:
             out_sentence = OutSentence(index, sentence)
 
@@ -101,28 +103,37 @@ class DiscourseSimplifier:
             self.logger.info("'" + str(sentence) + "'")
             self.logger.info("")
 
-            # Step 1: Create sentence discourse tree
-            self.logger.debug("### Step 1) CREATE SENTENCE DISCOURSE TREE ###")
-            self.logger.debug("")
-            self.discourse_tree_creator.reset()
             try:
-                self.discourse_tree_creator.add_sentence(sentence, index)
-                self.discourse_tree_creator.update()
-                if self.logger.isEnabledFor(logging.DEBUG):
-                    self.logger.debug("\n" + str(self.discourse_tree_creator.discourse_tree))
-
+                # Step 1: Create sentence discourse tree
+                self.logger.debug("### Step 1) CREATE SENTENCE DISCOURSE TREE ###")
                 self.logger.debug("")
-                self.logger.debug("### STEP 2) DO DISCOURSE EXTRACTION ###")
-                elements = self.discourse_extractor.do_discourse_extraction(self.discourse_tree_creator.discourse_tree)
-                for e in elements:
-                    out_sentence.add_element(e)
-                self.logger.debug("\n" + str(out_sentence))
+                self.discourse_tree_creator.reset()
+                try:
+                    self.discourse_tree_creator.add_sentence(sentence, index)
+                    self.discourse_tree_creator.update()
+                    if self.logger.isEnabledFor(logging.DEBUG):
+                        self.logger.debug("\n" + str(self.discourse_tree_creator.discourse_tree))
 
-            except ParseTreeException:
-                self.logger.error("Failed to process sentence: " + sentence)
+                    self.logger.debug("")
+                    self.logger.debug("### STEP 2) DO DISCOURSE EXTRACTION ###")
+                    elements = self.discourse_extractor.do_discourse_extraction(self.discourse_tree_creator.discourse_tree)
+                    for e in elements:
+                        out_sentence.add_element(e)
+                    self.logger.debug("\n" + str(out_sentence))
 
-            content.add_sentence(out_sentence)
-            index += 1
+                except ParseTreeException:
+                    self.logger.error("Failed to process sentence: " + sentence)
+
+                content.add_sentence(out_sentence)
+                index += 1
+
+            except:
+                # Add a single dummy element in this out_sentence, so that the error is depicted on 
+                # the output files, but the number and the order of the sentences in the output files
+                # is not disrupted.
+                new_element = Element(ParseTreeParser.parse("An error has occurred."), out_sentence.sentence_index, 0)
+                out_sentence.add_element(new_element)
+                content.add_sentence(out_sentence)
 
         self.logger.info("### FINISHED")
         return content

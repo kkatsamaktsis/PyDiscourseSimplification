@@ -10,7 +10,7 @@ class POSTagger:
     def parse(text: str) -> List[POSToken]:
         tokens = []
 
-        ann = config.corenlp_client.annotate(text)
+        ann = config.corenlp_client.annotate(text, annotators=['tokenize', 'ssplit', 'pos'])
         sentence = ann.sentence[0]
 
         idx = 0

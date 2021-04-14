@@ -16,7 +16,7 @@ class NERStringParser:
     def parse(text: str) -> NERString:
         tokens = []
 
-        ann = config.corenlp_client.annotate(text)
+        ann = config.corenlp_client.annotate(text, annotators=['tokenize', 'ssplit', 'ner'])
         sentence = ann.sentence[0]
 
         idx = 0
@@ -38,7 +38,7 @@ class NERStringParser:
         parse_tree_leaf_numbers = parse_tree_extraction_utils.get_leaf_numbers(parse_tree, parse_tree)
 
         ann = config.corenlp_client.annotate(words_utils.words_to_string(
-            parse_tree_extraction_utils.yield_words(parse_tree, [])))
+            parse_tree_extraction_utils.yield_words(parse_tree, [])), annotators=['tokenize', 'ssplit', 'ner'])
 
         sentence = ann.sentence[0]
 
