@@ -37,6 +37,40 @@ Inspect output
 ## Use as library
 Check `app.py`. 
     
-   
+## Use from Python interpreter
+
+    $ python3.7 setup.py sdist
+    $ pip3.7 install ./dist/discoursesimplification-0.0.1.tar.gz
+    $ python3.7
+    Python 3.7.6 (v3.7.6:43364a7ae0, Dec 18 2019, 14:18:50)
+    [Clang 6.0 (clang-600.0.57)] on darwin
+    Type "help", "copyright", "credits" or "license" for more information.
+    >>>
+    >>> from stanza.server import CoreNLPClient
+    >>> client = CoreNLPClient(annotators=['tokenize', 'ssplit', 'pos', 'lemma', 'ner', 'parse', 'depparse', 'coref'], timeout=30000, memory='6G', be_quiet=True)
+    >>>
+    >>> from discoursesimplification.processing.discourse_simplifier import DiscourseSimplifier
+    >>> from discoursesimplification.processing.processing_type import ProcessingType
+    >>>
+    >>> discourse_simplifier = DiscourseSimplifier(client)
+    >>> content = discourse_simplifier.do_discourse_simplification_from_string("We will walk, although it rains", ProcessingType.SEPARATE)
+    >>>
+    >>> print(content.default_format(False))
+    
+    # We will walk, although it rains
+
+    3633bf7b62b344348dbf0114e8661294        0       We will walk .
+            L:CONTRAST      3193cd29e24145599c87ca408448ba4d
+
+    3193cd29e24145599c87ca408448ba4d        0       It rains .
+            L:CONTRAST      3633bf7b62b344348dbf0114e8661294
+
+    >>> print(content.get_simplified_sentences_as_simple_text())
+    We will walk . It rains . 
+
+    >>>
+    >>> client.stop()
+    >>> exit()
+ 
 ## Author
 Konstantinos Katsamaktsis
