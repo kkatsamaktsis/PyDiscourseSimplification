@@ -28,9 +28,11 @@ Run program
     
 Inspect output
 
-    cat output_default.txt
-    cat output_flat.txt
-    cat output.json
+    cat input_file_output_default.txt
+    cat input_file_output_flat.txt
+    cat input_file_output.json
+    cat input_file_simplified.txt
+    cat input_file_parse_trees.txt
 
 ## Use as library
 Check `app.py`. 
